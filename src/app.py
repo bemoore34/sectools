@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from src.common.database import Database
 from src.models.users.views import user_blueprint
+from src.models.ipaddr.views import ipaddr_blueprint
 
 __author__ = 'bmoore'
 
@@ -26,3 +27,4 @@ def home():
 
 
 app.register_blueprint(user_blueprint, url_prefix="/users")
+app.register_blueprint(ipaddr_blueprint, url_prefix="/ipaddr")
