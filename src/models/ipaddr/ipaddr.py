@@ -1,4 +1,5 @@
 import uuid
+import ipaddress
 from src.common.database import Database
 from src.common.utils import Utils
 
@@ -6,8 +7,9 @@ __author__ = 'bmoore'
 
 
 class IPAddr(object):
-    def __init__(self, value, location, owner, attributes, internal, _id=None):
+    def __init__(self, value, ipv4, internal, location=None, owner=None, attributes=None, _id=None):
         self.value = value
+        self.ipv4 = ipv4  # Boolean
         self.location = location
         self.owner = owner
         self.attributes = attributes
@@ -16,4 +18,5 @@ class IPAddr(object):
 
     def __repr__(self):
         return "<IPAddr {}>".format(self.value)
+
 

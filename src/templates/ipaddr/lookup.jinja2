@@ -1,4 +1,9 @@
 {% extends "base.jinja2" %}
 {% block content %}
-IP Lookup Page
+{{ ipaddr.value }} is a valid IPv4 address
+{% if ipaddr.is_internal %}
+<p>{{ ipaddr.value }} is an internal address</p>
+{% else %}
+<p>{{ ipaddr.value }} is an internal address</p>
+{% endif %}
 {% endblock %}

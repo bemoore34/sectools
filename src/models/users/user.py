@@ -67,4 +67,5 @@ class User(object):
 
     @classmethod
     def find_by_email(cls, email):
+        # return a User class object with any key value pairs defined for the user --> **
         return cls(**Database.find_one(UserConstants.COLLECTION, {'email': email}))

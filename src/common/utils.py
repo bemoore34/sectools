@@ -1,5 +1,7 @@
 from passlib.hash import pbkdf2_sha512
 import re
+import ipaddress
+
 
 __author__ = 'bmoore'
 
@@ -31,3 +33,31 @@ class Utils(object):
         :return: True is passwords match, False otherwise
         """
         return pbkdf2_sha512.verify(password, hashed_password)
+
+    @staticmethod
+    def check_ip4_address(strvalue):
+        """
+        Check whether a supplied string is a valid IP address
+        :param strvalue: supplied value
+        :return: True is string is a valid IP address
+        """
+        try:
+            ipaddress.IPv4Address(strvalue)
+            return True
+        except ipaddress.AddressValueError:
+            return False
+
+    @staticmethod
+    def internal_address(ipaddr):
+        """
+        Check whether a provided IP address is an internal address
+        :param ipaddr: a provided ip address
+        :return: True if matches a valid internal IP address range
+        """
+        # Note - also have to account for the 106 range!
+        ipaddr = ipaddress.
+        if self.ipv4:
+            ip = ipaddress.IPv4Address(self.value)
+        else:
+            ip = ipaddress.IPv6Address(self.value)
+        return ip.is_private
